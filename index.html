@@ -2,36 +2,6 @@
   
 <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
-
-<!-- vidhandler component -->
-<script>
-AFRAME.registerComponent('vidhandler', {
-schema: {
-  target: {type: 'string'}
-},
-init: function() {
-    this.videoNodes = document.querySelectorAll(this.data.target)
-},
-tick: function() {
-    if (this.el.video.visible == true) {
-        if (!this.toggle) {
-            this.toggle = true;
-            for (let i = 0; i < this.videoNodes.length; i++) {
-                this.videoNodes[i].play();
-            } 
-        }
-    } else {
-        if (this.toggle) {
-          for (let i = 0; i < this.videoNodes.length; i++) {
-            this.videoNodes[i].pause();
-          }
-          this.toggle = false;
-        }
-    }
-}
-});
-</script>
-
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
@@ -39,7 +9,7 @@ tick: function() {
            <a-assets>
             <video id="TV" autoplay loop="true" src="https://salazerts.github.io/AR_videos/TV.mp4">
            </a-assets>
-		<a-marker-camera vidhandler="target: #vid, #videonew" preset='hiro'>
+		<a-marker-camera type="pattern" url="https://raw.githubusercontent.com/AR_targets/pattern-AR_TV.patt">
     			<a-video width="1.77" height="1" position='0 0.1 0' rotation='270 0 0' scale='1 1 1' opacity='1' src='https://salazerts.github.io/AR_videos/TV.mp4'>
     			</a-video>
 		</a-marker-camera>
