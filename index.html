@@ -13,7 +13,7 @@ init: function() {
     this.videoNodes = document.querySelectorAll(this.data.target)
 },
 tick: function() {
-    if (this.el.object3D.visible == true) {
+    if (this.el.video.visible == true) {
         if (!this.toggle) {
             this.toggle = true;
             for (let i = 0; i < this.videoNodes.length; i++) {
