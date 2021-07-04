@@ -1,32 +1,33 @@
 <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
-  <body style='margin : 0px; overflow: hidden;'>
 <script>
 AFRAME.registerComponent('vidhandler', {
-    init: function() {
-        this.toggle = false;
-        this.vidNodes = document.querySelectorAll("#vid, #videonew");
-        for (let i = 0; i < this.vidNodes.length; i++) {
-              this.vidNodes[i].pause();
-        }
-    },
-    tick: function() {
-        if (this.el.object3D.visible == true) {
-            if (!this.toggle) {
-                this.toggle = true;
-                for (let i = 0; i < this.vidNodes.length; i++) {
-                  this.vidNodes[i].play();
-                }
-            }
-        } else {
-            this.toggle = false;
+init: function() {
+    this.toggle = false;
+    this.vidNodes = document.querySelectorAll("#vid, #videonew");
+    for (let i = 0; i < this.vidNodes.length; i++) {
+          this.vidNodes[i].pause();
+    }
+},
+tick: function() {
+    if (this.el.object3D.visible == true) {
+        if (!this.toggle) {
+            this.toggle = true;
             for (let i = 0; i < this.vidNodes.length; i++) {
-              this.vidNodes[i].pause();
+              this.vidNodes[i].play();
             }
+        }
+    } else {
+        this.toggle = false;
+        for (let i = 0; i < this.vidNodes.length; i++) {
+          this.vidNodes[i].pause();
         }
     }
+}
 });
 </script>
+
+  <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs='sourceType: webcam;'>
            <a-assets>
               <video id="TV" autoplay loop="true" src="https://salazerts.github.io/AR_videos/TV.mp4">
