@@ -27,14 +27,14 @@ AFRAME.registerComponent('vidhandler', {
     }
 });
 </script>
-    <a-scene embedded arjs>
+    <a-scene embedded arjs='sourceType: webcam;'>
            <a-assets>
               <video id="TV" autoplay loop="true" src="https://salazerts.github.io/AR_videos/TV.mp4">
            </a-assets>
-		<a-marker-camera preset="custom" type="pattern" src="https://cdn.rawgit.com/salazerts/AR_targets/pattern-AR_TV.patt" vidhandler>
+		<<a-marker preset='hiro' vidhandler>
     			<a-video width="1.77" height="1" position='0 0.1 0' rotation='270 0 0' scale='1 1 1' opacity='1' vidhandler src='https://salazerts.github.io/AR_videos/TV.mp4'>
     			</a-video>
-		</a-marker-camera>
+		</a-marker>
     </a-scene>
   </body>
 </html>
